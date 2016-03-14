@@ -17,6 +17,9 @@ class MyController : UIPopUpViewController {
     super.viewDidLoad()
     
     let demoCell = UIPopUpViewCell()
+    //edit background color etc
+    //demoCell.view.backgroundColor = UIColor.brownColor()
+    
     demoCell.setup("Demo", image: UIImage(named: "circle-sprite")!) { (sender) -> () in
     Logger.debug("Pressed Demo")
     
