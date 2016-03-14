@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA78A4031C970FB500CF4AF6"
-               BuildableName = "UIPopUpView.framework"
-               BlueprintName = "UIPopUpView"
-               ReferencedContainer = "container:UIPopUpView.xcodeproj">
+               BlueprintIdentifier = "23AA32AA458D5681F1ADB55413893F30"
+               BuildableName = "Pods_UIPopUpView.framework"
+               BlueprintName = "Pods-UIPopUpView"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA78A4031C970FB500CF4AF6"
-            BuildableName = "UIPopUpView.framework"
-            BlueprintName = "UIPopUpView"
-            ReferencedContainer = "container:UIPopUpView.xcodeproj">
+            BlueprintIdentifier = "23AA32AA458D5681F1ADB55413893F30"
+            BuildableName = "Pods_UIPopUpView.framework"
+            BlueprintName = "Pods-UIPopUpView"
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA78A4031C970FB500CF4AF6"
-            BuildableName = "UIPopUpView.framework"
-            BlueprintName = "UIPopUpView"
-            ReferencedContainer = "container:UIPopUpView.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
