@@ -31,3 +31,17 @@ class MyController : UIPopUpViewController {
 The result of this is:
 
 ![img](http://i.imgur.com/Xu87UVm.png)
+
+
+##Customisation
+
+Inside of the `UIPopUpViewCell`
+```Swift
+    var view: UIView!
+    
+    @IBOutlet weak var title: UILabel!
+    
+    @IBOutlet weak var button: UIButton!
+    
+```
+You can do all the normal stuff like background modification of color, setting the button how you like; just check out the files to understand more.
