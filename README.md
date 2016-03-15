@@ -8,7 +8,7 @@ The `UIPopUpViewCell` items take a closure that using some magic does a block on
 
 You can also override the touch gestures as you'll surely want them back at some point.
 
-Example
+###Example
 
 ```Swift
 class MyController : UIPopUpViewController {
@@ -34,6 +34,40 @@ class MyController : UIPopUpViewController {
 The result of this is:
 
 ![img](http://i.imgur.com/Xu87UVm.png)
+
+##Context hoverover
+
+It is possible to change what is displayed as the `UIPopUpViewCell` entries have a context (Int)
+In the delegate override it is possible to change the current context depending on where the touches are on screen. 
+
+###Example
+
+```Swift
+
+//Here we create a delete item to appear if the context is set to one - in this case that is when we hover over a sprite
+selectCell.setup("Delete", image: UIImage(named:"circle-sprite")!, onPress: { (sender) -> () in
+            
+      self.lastSelected?.removeFromParent()
+        
+}, context: 1)
+
+
+//This is the override of the UIPopUpDelegate in the UIPopUpController class that is inherited
+
+override func uiPopUpViewSelectViewContext(parentView : UIView, position: CGPoint) -> Int {
+      
+    super.uiPopUpViewSelectViewContext(parentView, position: position)
+    
+    let obj = scene!.doesNodeExist(parentView, position: position)
+          
+    if obj.bool {
+    lastSelected = obj.node
+         return 1
+    } else {
+        return 0
+    }
+}
+```
 
 
 ##Customisation
