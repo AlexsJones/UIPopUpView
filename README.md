@@ -33,7 +33,6 @@ class MyController : UIPopUpViewController {
 
 The result of this is:
 
-
 ![video](http://i.imgur.com/lBybyNb.gifv)
 
 
