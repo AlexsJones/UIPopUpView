@@ -35,6 +35,11 @@ The result of this is:
 
 ![img](http://i.imgur.com/Xu87UVm.png)
 
+
+#Usage
+
+I'd recommend that you inherit from `UIPopUpViewController` as it already overrides some methods and implements the delegate - To override the default delegate response you can just implement your own and call `super.` first.
+
 ##Context hoverover
 
 It is possible to change what is displayed as the `UIPopUpViewCell` entries have a context (Int)
