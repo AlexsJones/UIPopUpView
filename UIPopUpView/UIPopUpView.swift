@@ -68,8 +68,6 @@ class UIPopUpView: UIView {
         
         for (view) in controls {
 
-            Logger.debug("Searching control \(view.name) for valid point inside")
-            
             if view.pointInside(location, withEvent: nil) {
                 return view
             }
@@ -78,7 +76,23 @@ class UIPopUpView: UIView {
         return nil
     }
     
+    func filterWithContext(context : Int) {
+        
+        for ( subview ) in controls {
+            if subview.context != context {
+                subview.hidden = true
+                stackview.removeArrangedSubview(subview)
+            }else {
+                subview.hidden = false
+                
+                stackview.addArrangedSubview(subview)
+            }
+        }
+    }
+    
     func show(parentView : UIView, position : CGPoint) {
+        
+        let context = delegate.uiPopUpViewSelectViewContext(parentView, position: position)
         
         view.hidden = false
         
@@ -86,11 +100,13 @@ class UIPopUpView: UIView {
         
         view.center = position
     
+        self.filterWithContext(context)
+        
         parentView.addSubview(view)
         
         delegate.uiPopUpViewDidAppear()
     }
-    
+ 
     func dismiss() {
         
         view.hidden = true
@@ -101,10 +117,8 @@ class UIPopUpView: UIView {
     func addControl(control : UIPopUpViewCell) {
         
         controls.append(control)
-        
-        stackview.addArrangedSubview(control)
-        
+
         stackview.layoutIfNeeded()
     }
-   
+
 }

@@ -10,11 +10,11 @@ import Foundation
 
 class UIPopUpViewCell : UIView {
     
+    var context : Int = 0
+    
     var view: UIView!
     
     @IBOutlet weak var title: UILabel!
-    
-    @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var button: UIButton!
     
@@ -62,8 +62,7 @@ class UIPopUpViewCell : UIView {
         Logger.debug("Pressed \(title.text)")
     }
     
-    func setup(title : String, image : UIImage, onPress : (sender : AnyObject) -> () ) {
-        
+    func setup(title : String, image : UIImage, onPress : (sender : AnyObject) -> ()) {
         
         self.button.setImage(image, forState: .Normal)
         
@@ -72,6 +71,15 @@ class UIPopUpViewCell : UIView {
             onPress(sender: sender)
         }
         
+        self.name = title
+        
         self.title.text = title
+    }
+    
+    func setup(title : String, image : UIImage, onPress : (sender : AnyObject) -> (), context: Int) {
+     
+        self.setup(title,image: image, onPress: onPress)
+        
+        self.context = context
     }
 }
