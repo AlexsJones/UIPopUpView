@@ -33,7 +33,8 @@ class MyController : UIPopUpViewController {
 
 The result of this is:
 
-![img](http://i.imgur.com/Xu87UVm.png)
+
+![](http://i.imgur.com/lBybyNb.gifv)
 
 
 #Usage
