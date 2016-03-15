@@ -33,7 +33,7 @@ class MyController : UIPopUpViewController {
 
 The result of this is:
 
-![Imgur](http://i.imgur.com/PTSjCO5.png)
+![Imgur](http://i.imgur.com/PTSjCO5.png =100x)
 
 video: http://i.imgur.com/lBybyNb.gifv
 
