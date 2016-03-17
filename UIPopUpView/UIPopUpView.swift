@@ -15,6 +15,8 @@ public class UIPopUpView: UIView {
     
     var controls : [UIPopUpViewCell] = [UIPopUpViewCell]()
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var stackview: UIStackView!
 
     var view: UIView!
@@ -48,9 +50,18 @@ public class UIPopUpView: UIView {
         
         addSubview(view)
         
+        stackview.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        
         stackview.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
         
-        stackview.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
+    //    stackview.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
+        
+        scrollView.contentSize = CGSizeMake(view.frame.width, view.frame.height)
+        
+        scrollView.maximumZoomScale = 1.0
+        
+        scrollView.scrollEnabled = true
+        
     }
 
     func loadViewFromNib() -> UIView {

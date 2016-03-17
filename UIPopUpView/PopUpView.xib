@@ -7,19 +7,39 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIPopUpView" customModule="CWD" customModuleProvider="target">
             <connections>
-                <outlet property="stackview" destination="Hio-8x-eyu" id="82y-E4-KmY"/>
+                <outlet property="scrollView" destination="9v2-P2-tJA" id="6Rl-Xu-sJ6"/>
+                <outlet property="stackview" destination="Hio-8x-eyu" id="Nvc-EL-cu0"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" ambiguous="YES" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Hio-8x-eyu">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9v2-P2-tJA">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                </stackView>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Hio-8x-eyu">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Hio-8x-eyu" firstAttribute="leading" secondItem="9v2-P2-tJA" secondAttribute="leading" id="766-Fc-pva"/>
+                        <constraint firstAttribute="bottom" secondItem="Hio-8x-eyu" secondAttribute="bottom" id="QhH-zI-XFn"/>
+                        <constraint firstItem="Hio-8x-eyu" firstAttribute="top" secondItem="9v2-P2-tJA" secondAttribute="top" id="cAf-d8-gTR"/>
+                        <constraint firstAttribute="trailing" secondItem="Hio-8x-eyu" secondAttribute="trailing" id="mGw-LZ-dOt"/>
+                        <constraint firstItem="Hio-8x-eyu" firstAttribute="centerY" secondItem="9v2-P2-tJA" secondAttribute="centerY" id="oum-Ht-GUb"/>
+                        <constraint firstItem="Hio-8x-eyu" firstAttribute="width" secondItem="9v2-P2-tJA" secondAttribute="width" id="yFW-ca-lmU"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="9v2-P2-tJA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ca4-4x-zAv"/>
+                <constraint firstItem="9v2-P2-tJA" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="IOA-b4-Jjp"/>
+                <constraint firstItem="9v2-P2-tJA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Yel-Dx-QGk"/>
+                <constraint firstItem="9v2-P2-tJA" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="gC6-Is-BqN"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
         </view>
