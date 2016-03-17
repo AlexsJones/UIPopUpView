@@ -9,7 +9,7 @@
 import Foundation
 
 
-class UIPopUpView: UIView {
+public class UIPopUpView: UIView {
     
     var delegate : UIPopUpViewDelegate! = nil
     
@@ -25,7 +25,7 @@ class UIPopUpView: UIView {
         xibSetup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
         
@@ -68,6 +68,8 @@ class UIPopUpView: UIView {
         
         for (view) in controls {
 
+            Logger.debug("Searching control \(view.name) for valid point inside")
+            
             if view.pointInside(location, withEvent: nil) {
                 return view
             }
@@ -79,6 +81,7 @@ class UIPopUpView: UIView {
     func filterWithContext(context : Int) {
         
         for ( subview ) in controls {
+            Logger.debug("\(subview.name) -> \(subview.context)")
             if subview.context != context {
                 subview.hidden = true
                 stackview.removeArrangedSubview(subview)
@@ -96,7 +99,7 @@ class UIPopUpView: UIView {
         
         view.hidden = false
         
-        view.frame.size = delegate.uiPopUpViewSizeForView()
+        view.frame.size = delegate.uiPopUpViewSizeForView(self)
         
         view.center = position
     
