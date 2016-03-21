@@ -10,24 +10,13 @@ import Foundation
 
 class UIPopUpViewController : UIViewController, UIGestureRecognizerDelegate, UIPopUpViewDelegate {
     
-    weak var uiPopUpView : UIPopUpView? = UIPopUpView()
+    let uiPopUpView : UIPopUpView = UIPopUpView()
     
     var isDisplayed : Bool = false
     
-    deinit {
-        Logger.debug("Deinit UIPopUpViewController")
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        
-        uiPopUpView?.delegate = nil
-        
-        uiPopUpView = nil
-        
-    }
     override func viewDidLoad() {
         
-        uiPopUpView?.delegate = self
+        uiPopUpView.delegate = self
         
         /* Gesture control */
         
@@ -40,34 +29,34 @@ class UIPopUpViewController : UIViewController, UIGestureRecognizerDelegate, UIP
         view.addGestureRecognizer(tpgr)
     }
     
-    func uiPopUpViewAddControl(popUpViewCell : UIPopUpViewCell?) {
+    func uiPopUpViewAddControl(name : String, imageName : String, context: Int = 0, eventName : String) {
         
-        self.uiPopUpView?.addControl(popUpViewCell)
+        self.uiPopUpView.addControl(name, imageName: imageName,context: context, eventName: eventName)
+
     }
     
-    func uiPopUpViewSizeForView(popUpView : UIPopUpView?) -> CGSize {
+    func uiPopUpViewSizeForView() -> CGSize {
         
         return CGSizeMake(250,250)
     }
     
-    func uiPopUpViewSelectViewContext(parentView : UIView?, position: CGPoint?) -> Int {
+    func uiPopUpViewSelectViewContext(parentView : UIView?, position: CGPoint) -> Int {
         
         return 0
     }
     
     func uiPopUpPointInsideView(location : CGPoint) -> Bool {
         
-        return (self.uiPopUpView?.view?.pointInside(location, withEvent: nil))!
+        return (self.uiPopUpView.view.pointInside(location, withEvent: nil))
     }
     
     func uiPopUpHandleTapPress(sender: UITapGestureRecognizer) {
         
-        
-        let location = sender.locationInView(self.uiPopUpView?.view)
+        let location = sender.locationInView(self.uiPopUpView.view)
         
         if self.uiPopUpPointInsideView(location) != true {
             
-            uiPopUpView?.dismiss()
+            uiPopUpView.dismiss()
         }
     }
     
@@ -79,7 +68,7 @@ class UIPopUpViewController : UIViewController, UIGestureRecognizerDelegate, UIP
             
             if isDisplayed == false {
                 
-                uiPopUpView?.show(self.view, position: location)
+                uiPopUpView.show(self.view, position: location)
                 
             }
         }

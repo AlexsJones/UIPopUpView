@@ -16,16 +16,9 @@ class MyController : UIPopUpViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let demoCell = UIPopUpViewCell()
-    //edit background color etc
-    //demoCell.view.backgroundColor = UIColor.brownColor()
-    
-    demoCell.setup("Demo", image: UIImage(named: "circle-sprite")!) { (sender) -> () in
-    Logger.debug("Pressed Demo")
-    
-    }
-    
-    self.uiPopUpViewAddControl(demoCell)
+    self.uiPopUpViewAddControl("Circle", imageName: "circle-sprite", context:0, eventName: "uiPopUpAPressed")
+        
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("uiPopUpAPressed"), name: "uiPopUpAPressed", object: nil)
   }
 }
 
