@@ -29,7 +29,7 @@ public class UIPopUpViewController : UIViewController, UIGestureRecognizerDelega
         view.addGestureRecognizer(tpgr)
     }
     
-    func uiPopUpViewAddControl(name : String, imageName : String, context: Int = 0, eventName : String) {
+    public func uiPopUpViewAddControl(name : String, imageName : String, context: Int = 0, eventName : String) {
         
         self.uiPopUpView.addControl(name, imageName: imageName,context: context, eventName: eventName)
 
@@ -45,12 +45,12 @@ public class UIPopUpViewController : UIViewController, UIGestureRecognizerDelega
         return 0
     }
     
-    func uiPopUpPointInsideView(location : CGPoint) -> Bool {
+    public func uiPopUpPointInsideView(location : CGPoint) -> Bool {
         
         return (self.uiPopUpView.view.pointInside(location, withEvent: nil))
     }
     
-    func uiPopUpHandleTapPress(sender: UITapGestureRecognizer) {
+    public func uiPopUpHandleTapPress(sender: UITapGestureRecognizer) {
         
         let location = sender.locationInView(self.uiPopUpView.view)
         
@@ -60,7 +60,7 @@ public class UIPopUpViewController : UIViewController, UIGestureRecognizerDelega
         }
     }
     
-    func uiPopUpHandleLongPress(sender: UILongPressGestureRecognizer) {
+    public func uiPopUpHandleLongPress(sender: UILongPressGestureRecognizer) {
         
         let location = sender.locationInView(self.view)
         

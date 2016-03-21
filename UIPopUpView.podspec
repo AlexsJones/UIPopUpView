@@ -8,7 +8,7 @@ s.summary = "Is a simple override for long press with a configurable stack pop u
 s.requires_arc = true
 
 # 2
-s.version = "0.0.3"
+s.version = "0.0.4"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }

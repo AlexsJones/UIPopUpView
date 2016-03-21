@@ -64,7 +64,7 @@ public class UIPopUpViewCell : UIView {
         NSNotificationCenter.defaultCenter().postNotificationName(self.notificationEventName!, object: nil)
     }
     
-    func setup(title : String, image : UIImage,notificationName : String) {
+    public func setup(title : String, image : UIImage,notificationName : String) {
         
         self.button.setImage(image, forState: .Normal)
         
@@ -75,7 +75,7 @@ public class UIPopUpViewCell : UIView {
         self.title.text = title
     }
     
-    func setup(title : String, image : UIImage,notificationName : String, context: Int) {
+    public func setup(title : String, image : UIImage,notificationName : String, context: Int) {
      
         self.setup(title,image: image, notificationName:  notificationName)
         

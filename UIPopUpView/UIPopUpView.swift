@@ -77,7 +77,7 @@ public class UIPopUpView: UIView {
         return view
     }
 
-    func selectControlAtLocation(location : CGPoint) -> UIPopUpViewCell? {
+    public func selectControlAtLocation(location : CGPoint) -> UIPopUpViewCell? {
         
         for (view) in controls {
  
@@ -91,7 +91,7 @@ public class UIPopUpView: UIView {
         return nil
     }
     
-    func filterWithContext(context : Int) {
+    public func filterWithContext(context : Int) {
         
         for ( view ) in controls {
 
@@ -107,7 +107,7 @@ public class UIPopUpView: UIView {
         }
     }
     
-    func show(parentView : UIView, position : CGPoint) {
+    public func show(parentView : UIView, position : CGPoint) {
         
         let context = delegate?.uiPopUpViewSelectViewContext(parentView, position: position)
         
@@ -124,14 +124,14 @@ public class UIPopUpView: UIView {
         delegate?.uiPopUpViewDidAppear()
     }
  
-    func dismiss() {
+    public func dismiss() {
         
         view.hidden = true
                 
         view.removeFromSuperview()
     }
     
-    func addControl(name : String, imageName : String, context: Int, eventName : String) {
+    public func addControl(name : String, imageName : String, context: Int, eventName : String) {
   
         let popUp = UIPopUpViewCell()
         
