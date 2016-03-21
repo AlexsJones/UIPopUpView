@@ -4,9 +4,11 @@ Simply put this was for my own use but I thought other people might find it usef
 
 Essentially you can inherit the `UIPopUpViewController` and add items for them to display.
 
-The `UIPopUpViewCell` items take a closure that using some magic does a block on the UIButton that gets pressed and returned.
+Please see the example project.
 
-You can also override the touch gestures as you'll surely want them back at some point.
+Getting going is as simple as `pod install UIPopUpView`
+
+Then in your project simply inherit from `UIPopUpViewController`
 
 ###Example
 
@@ -18,6 +20,7 @@ class MyController : UIPopUpViewController {
     
     self.uiPopUpViewAddControl("Circle", imageName: "circle-sprite", context:0, eventName: "uiPopUpAPressed")
         
+    //We want to monitor the notification posted in the control
     NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("uiPopUpAPressed"), name: "uiPopUpAPressed", object: nil)
   }
 }
@@ -26,32 +29,18 @@ class MyController : UIPopUpViewController {
 
 The result of this is:
 
-![Imgur](http://i.imgur.com/PTSjCO5.png =100x)
+![Imgur](http://i.imgur.com/MVixtWy.png?1)
 
 video: http://i.imgur.com/lBybyNb.gifv
 
 
 
-#Usage
-
-I'd recommend that you inherit from `UIPopUpViewController` as it already overrides some methods and implements the delegate - To override the default delegate response you can just implement your own and call `super.` first.
-
 ##Context hoverover
 
 It is possible to change what is displayed as the `UIPopUpViewCell` entries have a context (Int)
-In the delegate override it is possible to change the current context depending on where the touches are on screen. 
+In the delegate override it is possible to change the current context depending on where the touches are on screen. You might have noticed the context argument can be an integer.
 
-###Example
-
-```Swift
-
-//Here we create a delete item to appear if the context is set to one - in this case that is when we hover over a sprite
-selectCell.setup("Delete", image: UIImage(named:"circle-sprite")!, onPress: { (sender) -> () in
-            
-      self.lastSelected?.removeFromParent()
-        
-}, context: 1)
-
+Before the popup view appears you can override this method to select which context (Int) group to display.
 
 //This is the override of the UIPopUpDelegate in the UIPopUpController class that is inherited
 
@@ -69,7 +58,6 @@ override func uiPopUpViewSelectViewContext(parentView : UIView, position: CGPoin
     }
 }
 ```
-
 
 ##Customisation
 
