@@ -2,6 +2,8 @@
 
 Simply put this was for my own use but I thought other people might find it useful.
 
+This lets you add a long press pop up window on any view with a decent size.
+
 Essentially you can inherit the `UIPopUpViewController` and add items for them to display.
 
 Please see the example project.
@@ -60,6 +62,8 @@ override func uiPopUpViewSelectViewContext(parentView : UIView, position: CGPoin
 ```
 
 ##Customisation
+
+Please look at the `UIPopUpViewController` for methods you can override - it is possible to change things such as pop up shape and size this way.
 
 Inside of the `UIPopUpViewCell`
 ```Swift
