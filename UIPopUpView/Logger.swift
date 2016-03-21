@@ -2,7 +2,7 @@
 
 import Foundation
 
-class Logger: NSObject {
+public class Logger: NSObject {
     
     
     private class func privatePrint<T>(value: T, title: String, functionName: String, fileName: String, lineNumber: Int) {

@@ -8,13 +8,13 @@
 
 import Foundation
 
-class UIPopUpViewController : UIViewController, UIGestureRecognizerDelegate, UIPopUpViewDelegate {
+public class UIPopUpViewController : UIViewController, UIGestureRecognizerDelegate, UIPopUpViewDelegate {
     
     let uiPopUpView : UIPopUpView = UIPopUpView()
     
     var isDisplayed : Bool = false
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         
         uiPopUpView.delegate = self
         
@@ -35,12 +35,12 @@ class UIPopUpViewController : UIViewController, UIGestureRecognizerDelegate, UIP
 
     }
     
-    func uiPopUpViewSizeForView() -> CGSize {
+    public func uiPopUpViewSizeForView() -> CGSize {
         
         return CGSizeMake(250,250)
     }
     
-    func uiPopUpViewSelectViewContext(parentView : UIView?, position: CGPoint) -> Int {
+    public func uiPopUpViewSelectViewContext(parentView : UIView?, position: CGPoint) -> Int {
         
         return 0
     }

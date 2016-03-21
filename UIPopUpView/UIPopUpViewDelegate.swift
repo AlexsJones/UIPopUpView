@@ -15,7 +15,7 @@ public protocol UIPopUpViewDelegate: class{
     func uiPopUpViewSizeForView() -> CGSize
 }
 
-extension UIPopUpViewDelegate {
+public extension UIPopUpViewDelegate {
     public func uiPopUpViewDidAppear() {
         Logger.debug("UIPopUpViewDelegate : uiPopUpViewDidAppear")
     }

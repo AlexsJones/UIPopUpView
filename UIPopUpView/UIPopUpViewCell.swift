@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UIPopUpViewCell : UIView {
+public class UIPopUpViewCell : UIView {
     
     var context : Int = 0
     
@@ -28,7 +28,7 @@ class UIPopUpViewCell : UIView {
         xibSetup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
         

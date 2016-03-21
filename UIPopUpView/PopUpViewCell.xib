@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIPopUpViewCell" customModule="CWD" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIPopUpViewCell" customModule="UIPopUpView" customModuleProvider="target">
             <connections>
                 <outlet property="button" destination="TEx-16-7BY" id="N9T-eb-i0i"/>
                 <outlet property="title" destination="kXK-Vn-ebl" id="WxZ-fp-5jU"/>
