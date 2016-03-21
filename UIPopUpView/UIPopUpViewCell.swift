@@ -12,13 +12,13 @@ class UIPopUpViewCell : UIView {
     
     var context : Int = 0
     
-    var view: UIView!
+    var view: UIView?
     
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var title: UILabel?
     
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var button: UIButton?
     
-    var name : String! = NSUUID().UUIDString
+    var name : String? = NSUUID().UUIDString
     
     override init(frame: CGRect) {
         
@@ -37,13 +37,13 @@ class UIPopUpViewCell : UIView {
         
         view = loadViewFromNib()
         
-        view.frame = bounds
+        view?.frame = bounds
         
-        view.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        view?.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         
-        button.imageView!.contentMode = .ScaleAspectFit
+        button?.imageView?.contentMode = .ScaleAspectFit
 
-        addSubview(view)
+        addSubview(view!)
     }
     
     func loadViewFromNib() -> UIView {
@@ -59,21 +59,21 @@ class UIPopUpViewCell : UIView {
     
     @IBAction func onPress(sender: UIButton) {
         
-        Logger.debug("Pressed \(title.text)")
+        Logger.debug("Pressed \(title?.text)")
     }
     
     func setup(title : String, image : UIImage, onPress : (sender : AnyObject) -> ()) {
         
-        self.button.setImage(image, forState: .Normal)
+        self.button?.setImage(image, forState: .Normal)
         
-        self.button!.block_setAction { sender in
+        self.button?.block_setAction { sender in
             
             onPress(sender: sender)
         }
         
         self.name = title
         
-        self.title.text = title
+        self.title?.text = title
     }
     
     func setup(title : String, image : UIImage, onPress : (sender : AnyObject) -> (), context: Int) {

@@ -10,12 +10,23 @@ import Foundation
 
 public protocol UIPopUpViewDelegate {
     
-    func uiPopUpViewSelectViewContext(parentView : UIView?, position: CGPoint) -> Int
+    func uiPopUpViewSelectViewContext(parentView : UIView?, position: CGPoint?) -> Int
     
-    func uiPopUpViewSizeForView(popupView : UIPopUpView) -> CGSize
+    func uiPopUpViewSizeForView(popupView : UIPopUpView?) -> CGSize
 }
 
 extension UIPopUpViewDelegate {
+    
+    public func uiPopUpViewSelectViewContext(parentView : UIView?, position: CGPoint?) -> Int {
+        
+        return 0
+    }
+    
+    public func uiPopUpViewSizeForView(popupView : UIPopUpView?) -> CGSize {
+        
+        return CGSizeMake(250, 250)
+    }
+    
     public func uiPopUpViewDidAppear() {
         Logger.debug("UIPopUpViewDelegate : uiPopUpViewDidAppear")
     }

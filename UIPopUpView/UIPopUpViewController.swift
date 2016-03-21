@@ -10,7 +10,7 @@ import Foundation
 
 class UIPopUpViewController : UIViewController, UIGestureRecognizerDelegate, UIPopUpViewDelegate {
     
-    var uiPopUpView : UIPopUpView? = UIPopUpView()
+    weak var uiPopUpView : UIPopUpView? = UIPopUpView()
     
     var isDisplayed : Bool = false
     
@@ -40,24 +40,24 @@ class UIPopUpViewController : UIViewController, UIGestureRecognizerDelegate, UIP
         view.addGestureRecognizer(tpgr)
     }
     
-    func uiPopUpViewAddControl(popUpViewCell : UIPopUpViewCell) {
+    func uiPopUpViewAddControl(popUpViewCell : UIPopUpViewCell?) {
         
         self.uiPopUpView?.addControl(popUpViewCell)
     }
     
-    func uiPopUpViewSizeForView(popUpView : UIPopUpView) -> CGSize {
+    func uiPopUpViewSizeForView(popUpView : UIPopUpView?) -> CGSize {
         
         return CGSizeMake(250,250)
     }
     
-    func uiPopUpViewSelectViewContext(parentView : UIView?, position: CGPoint) -> Int {
+    func uiPopUpViewSelectViewContext(parentView : UIView?, position: CGPoint?) -> Int {
         
         return 0
     }
     
     func uiPopUpPointInsideView(location : CGPoint) -> Bool {
         
-        return (self.uiPopUpView?.view.pointInside(location, withEvent: nil))!
+        return (self.uiPopUpView?.view?.pointInside(location, withEvent: nil))!
     }
     
     func uiPopUpHandleTapPress(sender: UITapGestureRecognizer) {

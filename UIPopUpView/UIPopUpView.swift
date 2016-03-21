@@ -11,15 +11,15 @@ import Foundation
 
 public class UIPopUpView: UIView {
     
-    var delegate : UIPopUpViewDelegate! = nil
+    var delegate : UIPopUpViewDelegate? = nil
     
-    var controls : [UIPopUpViewCell] = [UIPopUpViewCell]()
+    var controls : [UIPopUpViewCell?] = [UIPopUpViewCell?]()
     
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollView: UIScrollView?
     
-    @IBOutlet weak var stackview: UIStackView!
+    @IBOutlet weak var stackview: UIStackView?
 
-    var view: UIView!
+    var view: UIView?
     
     override init(frame: CGRect) {
         
@@ -38,29 +38,29 @@ public class UIPopUpView: UIView {
         
         view = loadViewFromNib()
         
-        view.frame = bounds
+        view?.frame = bounds
         
-        view.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        view?.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         
-        view.layer.cornerRadius = 5
+        view?.layer.cornerRadius = 5
         
-        view.layer.masksToBounds = true
+        view?.layer.masksToBounds = true
         
-        view.alpha = 0.8
+        view?.alpha = 0.8
         
-        addSubview(view)
+        addSubview(view!)
         
-        stackview.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        stackview?.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         
-        stackview.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        stackview?.centerXAnchor.constraintEqualToAnchor(self.view?.centerXAnchor).active = true
         
     //    stackview.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
         
-        scrollView.contentSize = CGSizeMake(view.frame.width, view.frame.height)
+        scrollView?.contentSize = CGSizeMake(view!.frame.width, view!.frame.height)
         
-        scrollView.maximumZoomScale = 1.0
+        scrollView?.maximumZoomScale = 1.0
         
-        scrollView.scrollEnabled = true
+        scrollView?.scrollEnabled = true
         
     }
 
@@ -79,9 +79,9 @@ public class UIPopUpView: UIView {
         
         for (view) in controls {
 
-            Logger.debug("Searching control \(view.name) for valid point inside")
+            Logger.debug("Searching control \(view?.name) for valid point inside")
             
-            if view.pointInside(location, withEvent: nil) {
+            if view!.pointInside(location, withEvent: nil) {
                 return view
             }
         }
@@ -92,47 +92,47 @@ public class UIPopUpView: UIView {
     func filterWithContext(context : Int) {
         
         for ( subview ) in controls {
-            Logger.debug("\(subview.name) -> \(subview.context)")
-            if subview.context != context {
-                subview.hidden = true
-                stackview.removeArrangedSubview(subview)
+            Logger.debug("\(subview?.name) -> \(subview?.context)")
+            if subview?.context != context {
+                subview?.hidden = true
+                stackview?.removeArrangedSubview(subview!)
             }else {
-                subview.hidden = false
+                subview?.hidden = false
                 
-                stackview.addArrangedSubview(subview)
+                stackview?.addArrangedSubview(subview!)
             }
         }
     }
     
     func show(parentView : UIView, position : CGPoint) {
         
-        let context = delegate.uiPopUpViewSelectViewContext(parentView, position: position)
+        let context = delegate?.uiPopUpViewSelectViewContext(parentView, position: position)
         
-        view.hidden = false
+        view?.hidden = false
         
-        view.frame.size = delegate.uiPopUpViewSizeForView(self)
+        view?.frame.size = delegate!.uiPopUpViewSizeForView(self)
         
-        view.center = position
+        view?.center = position
     
-        self.filterWithContext(context)
+        self.filterWithContext(context!)
         
-        parentView.addSubview(view)
+        parentView.addSubview(view!)
         
-        delegate.uiPopUpViewDidAppear()
+        delegate?.uiPopUpViewDidAppear()
     }
  
     func dismiss() {
         
-        view.hidden = true
+        view?.hidden = true
         
-        view.removeFromSuperview()
+        view?.removeFromSuperview()
     }
     
-    func addControl(control : UIPopUpViewCell) {
+    func addControl(control : UIPopUpViewCell?) {
         
         controls.append(control)
 
-        stackview.layoutIfNeeded()
+        stackview?.layoutIfNeeded()
     }
 
 }
