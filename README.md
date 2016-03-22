@@ -44,8 +44,8 @@ In the delegate override it is possible to change the current context depending 
 
 Before the popup view appears you can override this method to select which context (Int) group to display.
 
-//This is the override of the UIPopUpDelegate in the UIPopUpController class that is inherited
-
+This is the override of the UIPopUpDelegate in the UIPopUpController class that is inherited
+```Swift
 override func uiPopUpViewSelectViewContext(parentView : UIView, position: CGPoint) -> Int {
       
     super.uiPopUpViewSelectViewContext(parentView, position: position)
